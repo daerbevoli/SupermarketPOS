@@ -4,27 +4,37 @@ namespace SupermarketPOS.Core
 {
     public class Product
     {
-        public int id
+        public int Id
         {
             get; set;
         }
 
-        public string barcode
+        public string Barcode
         {
             get; set;
         } = string.Empty;
 
-        public string name
+        public string Naam
         {
             get; set;
         } = string.Empty;
 
-        public decimal price
+        public decimal Prijs
         {
             get; set;
         }
 
-        public bool hasPromo
+        public string Eenheid
+        {
+            get; set;
+        } = string.Empty;
+
+        public string Categorie
+        {
+            get; set;
+        } = string.Empty;
+
+        public int Voorraad
         {
             get; set;
         }

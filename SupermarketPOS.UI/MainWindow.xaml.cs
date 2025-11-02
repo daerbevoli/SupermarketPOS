@@ -23,26 +23,33 @@ namespace SupermarketPOS.UI
         {
             if (e.Key == Key.Enter)
             {
-                var code = BarcodeTextBox.Text.Trim();
-                var product = _context.Products.FirstOrDefault(p => p.barcode == code);
-
-                if (product != null)
+                try
                 {
-                    Cart.Add(product);
-                    UpdateTotal();
-                }
-                else
-                {
-                    MessageBox.Show("Product not found!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+                    var code = BarcodeTextBox.Text.Trim();
+                    var product = _context.Products.FirstOrDefault(p => p.Barcode == code);
 
-                BarcodeTextBox.Clear();
+                    if (product != null)
+                    {
+                        Cart.Add(product);
+                        UpdateTotal();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Product not found!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+
+                    BarcodeTextBox.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
         private void UpdateTotal()
         {
-            TotalText.Text = $"{Cart.Sum(p => p.price):C}";
+            TotalText.Text = $"{Cart.Sum(p => p.Prijs)}";
         }
     }
 }
