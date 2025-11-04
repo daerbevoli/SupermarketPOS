@@ -24,6 +24,11 @@ namespace SupermarketPOS.Core
             get; set;
         }
 
+        public int BTW
+        {
+            get; set;
+        }
+
         public string Eenheid
         {
             get; set;
