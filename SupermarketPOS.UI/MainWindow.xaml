@@ -45,7 +45,9 @@
 				<ColumnDefinition Width="Auto"/>
 			</Grid.ColumnDefinitions>
 
-			<Button x:Name="CashButton"
+            <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left" >
+
+                <Button x:Name="CashButton"
                     Content="Cash"
                     Width="120"
                     Height="30"
@@ -53,6 +55,17 @@
                     Click="CashButton_Click"
                     FontSize="14"
                     FontWeight="Bold"/>
-		</Grid>
+                <Button x:Name="SalesButton" 
+                        Content="Sales" 
+                        Width="120" 
+                        Height="30" 
+                        Margin="10,0,0,0" 
+                        Click="SalesButton_Click" 
+                        FontSize="14" 
+                        FontWeight="Bold"
+                        Background="#FFD9E8FF"/>
+            </StackPanel>
+            
+        </Grid>
 	</Grid>
 </Window>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="SupermarketPOS.UI.SalesHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sales History" Height="600" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Sales" FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
+
+        <DataGrid x:Name="SalesGrid" 
+                  Grid.Row="1" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True"
+                  SelectionChanged="SalesGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Sale ID" Binding="{Binding Id}" Width="100"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding SaleDate, StringFormat='g'}" Width="200"/>
+                <DataGridTextColumn Header="Total" Binding="{Binding TotalAmount, StringFormat='C'}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Grid.Row="2" Text="Items for Selected Sale" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
+
+        <DataGrid x:Name="SaleItemsGrid" 
+                  Grid.Row="3" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product Name" Binding="{Binding Product.Naam}" Width="*"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="100"/>
+                <DataGridTextColumn Header="Price at Sale" Binding="{Binding PriceAtSale, StringFormat='C'}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

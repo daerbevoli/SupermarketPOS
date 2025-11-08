@@ -137,5 +137,14 @@ namespace SupermarketPOS.UI
                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void SalesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var salesWindow = new SalesHistoryWindow();
+
+            // ShowDialog() opens the window and blocks the main window
+            // until you close the sales window. This is good practice.
+            salesWindow.ShowDialog();
+        }
     }
 }
