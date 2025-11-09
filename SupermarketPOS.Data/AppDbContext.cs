@@ -19,8 +19,8 @@ namespace SupermarketPOS.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=supermarket.db");
-            }
+                var dbPath = @"C:\Users\samee\Kassa\SupermarketPOS.Data\supermarket.db";
+                optionsBuilder.UseSqlite($"Data Source={dbPath}");            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
