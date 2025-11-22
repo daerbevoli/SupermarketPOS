@@ -140,11 +140,27 @@ namespace SupermarketPOS.UI
 
         private void SalesButton_Click(object sender, RoutedEventArgs e)
         {
-            var salesWindow = new SalesHistoryWindow();
 
-            // ShowDialog() opens the window and blocks the main window
-            // until you close the sales window. This is good practice.
-            salesWindow.ShowDialog();
+            var salesWindow = new SalesHistoryWindow { MainWindow = this };
+            ShowOverlay(salesWindow);
+        }
+
+        public void ShowOverlay(UserControl content)
+        {
+            OverlayContent.Content = content;
+            OverlayPanel.Visibility = Visibility.Visible;
+        }
+
+        public void CloseOverlay()
+        {
+            OverlayPanel.Visibility = Visibility.Collapsed;
+            OverlayContent.Content = null;
+        }
+
+        private void NewProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            var newProductWindow = new NewProductWindow { MainWindow = this };
+            ShowOverlay(newProductWindow);
         }
     }
 }

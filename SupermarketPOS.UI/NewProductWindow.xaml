@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="SupermarketPOS.UI.NewProductWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="1000" Height="700" Background="White">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Create a new product" FontSize="16" FontWeight="Bold" Margin="0,0,0,12"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top">
+                <TextBlock Text="Barcode:" Margin="0,4,0,0"/>
+                <TextBlock Text="Naam:" Margin="0,12,0,0"/>
+                <TextBlock Text="Prijs:" Margin="0,12,0,0"/>
+                <TextBlock Text="BTW (%):" Margin="0,12,0,0"/>
+                <TextBlock Text="Eenheid:" Margin="0,12,0,0"/>
+                <TextBlock Text="Categorie:" Margin="0,12,0,0"/>
+                <TextBlock Text="Voorraad:" Margin="0,12,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top">
+                <TextBox x:Name="BarcodeTextBox" Margin="0,4"/>
+                <TextBox x:Name="NaamTextBox" Margin="0,8,0,0"/>
+                <TextBox x:Name="PrijsTextBox" Margin="0,8,0,0" ToolTip="Use dot as decimal separator (e.g. 1.20)"/>
+                <TextBox x:Name="BTWTextBox" Margin="0,8,0,0"/>
+                <TextBox x:Name="EenheidTextBox" Margin="0,8,0,0"/>
+                <TextBox x:Name="CategorieTextBox" Margin="0,8,0,0"/>
+                <TextBox x:Name="VoorraadTextBox" Margin="0,8,0,0"/>
+
+            </StackPanel>
+
+        </Grid>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="Save" Width="90" Margin="0,0,8,0" Click="SaveButton_Click" Background="#FF9A7474"/>
+            <Button Content="Back" Width="90" Click="BackButton_Click" Background="#FF907F7F"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -3,12 +3,15 @@ using SupermarketPOS.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Microsoft.EntityFrameworkCore; // <-- Add this!!
+using Microsoft.EntityFrameworkCore;
 
 namespace SupermarketPOS.UI
 {
-    public partial class SalesHistoryWindow : Window
+    public partial class SalesHistoryWindow : UserControl
     {
+
+        public MainWindow MainWindow { get; set; }
+
         public SalesHistoryWindow()
         {
             InitializeComponent();
@@ -58,6 +61,11 @@ namespace SupermarketPOS.UI
             {
                 MessageBox.Show($"Failed to load sale items: {ex.Message}", "Error");
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow?.CloseOverlay();
         }
     }
 }
